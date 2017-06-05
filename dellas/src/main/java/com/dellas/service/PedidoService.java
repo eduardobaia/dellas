@@ -12,6 +12,8 @@ public interface PedidoService {
 	
 	PedidoDTO update(PedidoDTO pedido);
 	
+	void delete(long id);
+	
 	List<PedidoDTO> findAll();
 	
 	List<PedidoDTO> findByFilter(PedidoDTO pedido);

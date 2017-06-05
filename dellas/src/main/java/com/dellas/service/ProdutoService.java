@@ -19,6 +19,8 @@ public interface ProdutoService {
 	
 	ProdutoDTO update(ProdutoDTO produto);
 	
+	void delete(long id);
+	
 	List<ProdutoDTO> findAll();
 	
 	List<ProdutoDTO> findByFilter(ProdutoDTO produto);
