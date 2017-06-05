@@ -43,7 +43,7 @@ public class ProdutoServiceImpl implements ProdutoService{
 	@Override
 	public ProdutoDTO update(ProdutoDTO produto) {
 		final Produto produtoModel= ProdutoConverter.toProduto(produto);
-		checkExcepion(validadeUpdateProduto(produto));
+		checkException(validadeUpdateProduto(produto));
 		return ProdutoConverter.toProdutoDTO(repositorio.save(produtoModel));
 	}
 
@@ -66,13 +66,13 @@ public class ProdutoServiceImpl implements ProdutoService{
 		repositorio.delete(id);		
 	}
 
-	public void checkExcepion(final ArrayList<ProdutoException> exceptions){
+	public void checkException(final ArrayList<ProdutoException> exceptions){
 		if(!exceptions.isEmpty()){
 			throw new MultipleProdutoException(exceptions);
 		}
 	}
 	
-	
+
 	//Validacoes
 	private void validaNome(final ProdutoDTO produto, final ArrayList<ProdutoException> errors){
 		if( StringUtils.isBlank(produto.getNome())){
@@ -89,11 +89,7 @@ public class ProdutoServiceImpl implements ProdutoService{
 	
 	
 	
-	private void checkException(final ArrayList<ProdutoException> exceptions) {
-		if (!exceptions.isEmpty()) {
-			throw new MultipleProdutoException(exceptions);
-		}
-	}
+
 
 	private ArrayList<ProdutoException> validadePersistProduto(final ProdutoDTO produto) {
 		final ArrayList<ProdutoException> errors = new ArrayList<ProdutoException>();
