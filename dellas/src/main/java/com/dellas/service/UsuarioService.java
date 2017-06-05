@@ -20,6 +20,8 @@ public interface UsuarioService {
 	
 	UsuarioDTO update(UsuarioDTO usuario);
 	
+	void delete(Long id);
+	
 	List<UsuarioDTO> findAll();
 	
 	List<UsuarioDTO> findByFilter(UsuarioDTO usuario);
