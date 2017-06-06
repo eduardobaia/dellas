@@ -1,4 +1,4 @@
-package com.dellas.dellas;
+package com.dellas.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
