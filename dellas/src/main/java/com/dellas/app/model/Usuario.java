@@ -1,17 +1,21 @@
 package com.dellas.app.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USUARIO")
-public class Usuario implements Serializable{
+@Table(name = "USUARIO")
+public class Usuario implements Serializable {
 
 	/**
 	 *
@@ -35,50 +39,52 @@ public class Usuario implements Serializable{
 	@Column(name = "URS_TELEFONE", nullable = false, length = 50)
 	private String telefone;
 
+	@OneToMany(mappedBy = "usuario", targetEntity = Pedido.class, fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
+	private List<Pedido> pedido;
+
+	public List<Pedido> getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(final List<Pedido> pedido) {
+		this.pedido = pedido;
+	}
+
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(final Long id) {
 		this.id = id;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
-
 
 	public void setNome(final String nome) {
 		this.nome = nome;
 	}
 
-
 	public String getLogin() {
 		return login;
 	}
-
 
 	public void setLogin(final String login) {
 		this.login = login;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
-
 
 	public void setPassword(final String password) {
 		this.password = password;
 	}
 
-
 	public String getTelefone() {
 		return telefone;
 	}
-
 
 	public void setTelefone(final String telefone) {
 		this.telefone = telefone;
@@ -95,7 +101,6 @@ public class Usuario implements Serializable{
 		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(final Object obj) {
@@ -148,14 +153,9 @@ public class Usuario implements Serializable{
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", login=" + login + ", password=" + password + ", telefone="
 				+ telefone + ", pedidos=" + "]";
 	}
-
-
-
-
 }

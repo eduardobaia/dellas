@@ -12,11 +12,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
-@Table(name="PRODUTO")
+@Table(name = "PRODUTO")
 public class Produto implements Serializable {
-
 
 	/**
 	 *
@@ -47,79 +45,61 @@ public class Produto implements Serializable {
 	@Column(name = "FORNECEDOR")
 	private String fornecedor;
 
-
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(final Long id) {
 		this.id = id;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
-
 
 	public void setNome(final String nome) {
 		this.nome = nome;
 	}
 
-
 	public String getDescricao() {
 		return descricao;
 	}
-
 
 	public void setDescricao(final String descricao) {
 		this.descricao = descricao;
 	}
 
-
 	public double getPreco() {
 		return preco;
 	}
-
 
 	public void setPreco(final double preco) {
 		this.preco = preco;
 	}
 
-
 	public int getQuantidade() {
 		return quantidade;
 	}
-
 
 	public void setQuantidade(final int quantidade) {
 		this.quantidade = quantidade;
 	}
 
-
 	public Date getDataValidade() {
 		return dataValidade;
 	}
-
 
 	public void setDataValidade(final Date dataValidade) {
 		this.dataValidade = dataValidade;
 	}
 
-
 	public String getFornecedor() {
 		return fornecedor;
 	}
 
-
 	public void setFornecedor(final String fornecedor) {
 		this.fornecedor = fornecedor;
 	}
-
-
-
-
 
 	@Override
 	public String toString() {
@@ -127,7 +107,6 @@ public class Produto implements Serializable {
 				+ ", quantidade=" + quantidade + ", dataValidade=" + dataValidade + ", fornecedor=" + fornecedor
 				+ ", pedido=" + "]";
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -144,7 +123,6 @@ public class Produto implements Serializable {
 		result = prime * result + quantidade;
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(final Object obj) {
