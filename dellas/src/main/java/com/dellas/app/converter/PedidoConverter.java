@@ -14,7 +14,7 @@ public class PedidoConverter {
 		pedido.setDescricao(dto.getDescricao());
 		pedido.setData(dto.getData());
 		pedido.setObservacao(dto.getObservacao());
-		pedido.setUsuario(dto.getFuncionario());
+		pedido.setUsuario(dto.getUsuario());
 		pedido.setProdutos(dto.getProdutos());
 		pedido.setStatus(dto.getStatus());
 		pedido.setValorDesconto(dto.getValorDesconto());
@@ -30,7 +30,7 @@ public class PedidoConverter {
 		model.setDescricao(pedido.getDescricao());
 		model.setData(pedido.getData());
 		model.setObservacao(pedido.getObservacao());
-		model.setFuncionario(pedido.getUsuario());
+		model.setUsuario(pedido.getUsuario());
 		model.setProdutos(pedido.getProdutos());
 		model.setStatus(pedido.getStatus());
 		model.setValorDesconto(pedido.getValorDesconto());

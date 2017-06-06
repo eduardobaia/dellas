@@ -23,7 +23,8 @@ public class PedidoServiceImpl implements PedidoService {
 	private PedidoRepository repositorio;
 
 	private static final String VALOR_TOTAL_ITENS_OBRIGATORIO = "O campo Login  é obrigatório.";
-	private static final String PRODUTOS_OBRIGATORIO = "O campo senha obrigatório.";
+	private static final String PRODUTOS_OBRIGATORIO = "Os produtos sao obrigátorios";
+	private static final String USUARIO_OBRIGATORIO = "O usuário é obrigátorios";
 
 	@Transactional(readOnly = false)
 	@Override
@@ -72,6 +73,12 @@ public class PedidoServiceImpl implements PedidoService {
 		}
 	}
 
+	private void validaUsuario(final PedidoDTO pedido, final ArrayList<PedidoException> errors){
+		if( pedido.getUsuario() == null){
+			errors.add(new PedidoException(USUARIO_OBRIGATORIO));
+		}
+	}
+	
 	private void checkException(final ArrayList<PedidoException> exceptions) {
 		if (!exceptions.isEmpty()) {
 			throw new MultiplePedidoException(exceptions);
@@ -82,6 +89,7 @@ public class PedidoServiceImpl implements PedidoService {
 		final ArrayList<PedidoException> errors = new ArrayList<PedidoException>();
 		validaValorTotalItens(pedido, errors);
 		validaProdutos(pedido, errors);
+		validaUsuario(pedido, errors);
 		return errors;
 	}
 
@@ -90,6 +98,7 @@ public class PedidoServiceImpl implements PedidoService {
 		final ArrayList<PedidoException> errors = new ArrayList<PedidoException>();
 		validaValorTotalItens(pedido, errors);
 		validaProdutos(pedido, errors);
+		validaUsuario(pedido, errors);
 		return errors;
 	}
 

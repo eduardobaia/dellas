@@ -16,10 +16,10 @@ public class PedidoDTO {
 	private String descricao;
 	@JsonSerialize(using = CustomDateSerializer.class)
 	@JsonDeserialize(using = CustomDateDeserializer.class)
-	private Date data;
+	private Date data = new Date();
 	private double valorTotalItens;
 	private double valorDesconto;
-	private Usuario funcionario;
+	private Usuario usuario;
 	private String status;
 	private List<Produto> produtos;
 	private String observacao;
@@ -53,11 +53,11 @@ public class PedidoDTO {
 	public void setValorDesconto(double valorDesconto) {
 		this.valorDesconto = valorDesconto;
 	}
-	public Usuario getFuncionario() {
-		return funcionario;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setFuncionario(Usuario funcionario) {
-		this.funcionario = funcionario;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	public String getStatus() {
 		return status;

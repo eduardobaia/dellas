@@ -25,7 +25,7 @@ public class ProdutoServiceImpl implements ProdutoService{
 	private ProdutoRepository repositorio;
 
 	private static final String NOME__OBRIGATORIO = "O Nome do produto  é obrigatório.";
-	private static final String VALIDADE_OBRIGATORIO = "O Cnpj é obrigatório.";
+	private static final String VALIDADE_OBRIGATORIO = "A Validade é origatória";
 
 	@Transactional(readOnly = false)
 	@Override
