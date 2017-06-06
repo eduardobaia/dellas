@@ -39,7 +39,7 @@ public class Usuario implements Serializable {
 	@Column(name = "URS_TELEFONE", nullable = false, length = 50)
 	private String telefone;
 
-	@OneToMany(mappedBy = "usuario", targetEntity = Pedido.class, fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
+	@OneToMany(mappedBy = "usuario", targetEntity = Pedido.class, fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	private List<Pedido> pedido;
 
 	public List<Pedido> getPedido() {
